@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  db:
+    environment:
+      - POSTGRES_USER=ccclub
+      - POSTGRES_PASSWORD=ccclub
+      - POSTGRES_DB=ccclub
+    image: postgres:12.0-alpine
+  web:
+    environment:
+      - GMAIL_USER=${GMAIL_USER}
+      - GMAIL_PASSWORD=${GMAIL_PASSWORD}
+    build: ./
+    command: python manage.py runserver 0.0.0.0:8080
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - 80:8080
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
