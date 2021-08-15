@@ -35,6 +35,12 @@ class Course(models.Model):
     course_requirement = models.TextField(default=None, blank=True)
     course_reading = models.TextField(default=None, blank=True)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['semester', 'serial_num', 'department'], name='unique course')
+        ]
+
     def __str__(self):
         return f"{self.semester}: {self.name}({self.teacher})"
 
