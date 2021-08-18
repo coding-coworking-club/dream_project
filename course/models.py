@@ -19,8 +19,8 @@ class Course(models.Model):
     credit = models.PositiveIntegerField(default=None)
     identification_code = models.CharField(max_length=30)
     half_year = models.CharField(max_length=10)
-    required = models.CharField(max_length=10)
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    required = models.CharField(max_length=10, blank=True)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, blank=True, null=True)
     registration_type = models.PositiveIntegerField(default=None)
     time = models.CharField(max_length=150)
     location = models.CharField(max_length=40, blank=True)
@@ -42,7 +42,7 @@ class Course(models.Model):
         ]
 
     def __str__(self):
-        return f"{self.semester}: {self.name}({self.teacher})"
+        return f"{self.semester}: [{self.department}]{self.name}({self.teacher})"
 
 
 class CourseEvaluation(models.Model):
