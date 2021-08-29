@@ -21,3 +21,9 @@ services:
       - ./.env.dev
     depends_on:
       - db
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    ports:
+      - "3000:3000"
