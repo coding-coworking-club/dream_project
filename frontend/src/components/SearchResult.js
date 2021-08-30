@@ -2,7 +2,7 @@ import React from 'react'
 import { Table } from 'antd';
 import styled from 'styled-components';
 const Section = styled.div`
- padding:0 10% !important;
+ padding: 10% 0 !important;
 `;
 
 const columns = [
@@ -51,7 +51,8 @@ const columns = [
       time: ['cool', 'teacher'],
     },
   ];
-const SearchResult = () => {
+const SearchResult = (props) => {
+  console.log(props)
     return (
         <Section>
             <Table columns={columns} dataSource={data} />
