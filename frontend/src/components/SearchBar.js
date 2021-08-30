@@ -1,6 +1,8 @@
 import React from 'react'
-import { Input, Space } from 'antd';
+import { Input} from 'antd';
 import styled from 'styled-components';
+import {search} from '../apis/index'
+
 const Section = styled.div`
   align-items: center !important;
   padding: 10% !important;
@@ -8,8 +10,6 @@ const Section = styled.div`
 const SearchBar = () => {
 
     const { Search } = Input;
-    const onSearch = value => console.log(value);
-
     return (
         <Section>
             <Search
@@ -17,7 +17,7 @@ const SearchBar = () => {
                 allowClear
                 enterButton="Search"
                 size="large"
-                onSearch={onSearch}
+                onSearch={value=>search(value)}
             />
          </Section>
     )
