@@ -1,82 +1,54 @@
 import React from 'react'
-import { Table, Tag, Space } from 'antd';
+import { Table } from 'antd';
 import styled from 'styled-components';
 const Section = styled.div`
  padding:0 10% !important;
 `;
 
-
-// const fakeDate = {}
 const columns = [
     {
-      title: 'Name',
+      title: '課程名稱',
       dataIndex: 'name',
       key: 'name',
       render: text => <a>{text}</a>,
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: '上課教室',
+      dataIndex: 'location',
+      key: 'location',
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: '授課教師',
+      dataIndex: 'teacher',
+      key: 'teacher',
     },
     {
-      title: 'Tags',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: tags => (
-        <>
-          {tags.map(tag => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      render: (text, record) => (
-        <Space size="middle">
-          <a>Invite {record.name}</a>
-          <a>Delete</a>
-        </Space>
-      ),
-    },
+      title: '上課時間',
+      dataIndex: 'time',
+      key: 'time',
+    }
   ];
-  
   const data = [
     {
       key: '1',
       name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
+      location: 32,
+      teacher: 'New York No. 1 Lake Park',
+      time: ['nice', 'developer'],
     },
     {
       key: '2',
       name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
+      location: 42,
+      teacher: 'London No. 1 Lake Park',
+      time: ['loser'],
     },
     {
       key: '3',
       name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
+      location: 32,
+      teacher: 'Sidney No. 1 Lake Park',
+      time: ['cool', 'teacher'],
     },
   ];
 const SearchResult = () => {
